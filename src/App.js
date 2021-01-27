@@ -9,6 +9,7 @@ import ProtectedRoute from './auth/ProtectedRoute'
 import Home from './views/Home'
 import Page1 from './views/Page1'
 import Page2 from './views/Page2'
+import Register from './views/Register'
 
 import './App.css';
 
@@ -27,6 +28,7 @@ const App = () => {
                 <Route path="/" exact component={Home} />
                 <Route path="/page1" exact component={Page1} />
                 <ProtectedRoute path="/page2" exact component={Page2} />
+                <Route path="/register" exact component={Register} />
             </Switch>
             {/*<Footer />*/}
         </div>
