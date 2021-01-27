@@ -29,18 +29,10 @@
   animation: 50s para infinite linear;
 	background-attachment: fixed; */
 }
-/* 
-@keyframes para {
-  100% {
-    background-position: 
-      -5000px 20%,
-      -800px 95%,
-      500px 50%;
-    }
-  } */
-::placeholder{
+
+/* ::placeholder{
   font-family: Arial, Helvetica, sans-serif;
-}
+} */
 
 .main_block{
   color:#3B454C;

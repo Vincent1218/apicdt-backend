@@ -18,9 +18,16 @@ const Register = () => {
 
   const onSubmit = (e) =>{
     e.preventDefault()
-    console.log('Submit')
+    console.log(e)
 
-    
+    const register_data={engSchoolName,
+                        chiSchoolName,
+                        engTeamLeaderName,
+                        chiTeamLeaderName,
+                        teamLeaderContact,
+                        teamLeaderEmail,
+                        debateTopics_1,
+                        debateTopics_2}
     
     setEngSchoolName = ('')
     setChiSchoolName = ('')
@@ -40,7 +47,7 @@ const Register = () => {
             <span className = "englishF"> Register / </span> <span> 注册 </span>
         </div>
         <div className="regBlock row">
-          <form className="col-md-8 col-12 regForm ">
+          <form className="col-md-8 col-12 regForm " onSubmit = {onSubmit}>
             <div className="school container">
               <div className="schoolPart formHeader">
                   <span className = "englishF"> Particulars of School / </span> <span> 学校资料 </span>
@@ -50,7 +57,7 @@ const Register = () => {
                   <input type="text" className="form-control englsihF" value={engSchoolName} placeholder="Name of School" onChange={(e) => setEngSchoolName(e.target.value)} />
                 </div>
                 <div className="mb-3 col-6">
-                  <input type="text" className="form-control" value={chiSchoolName} placeholder="学校名称" onChange={(e) => setChiSchoolName(e.target.value)} />
+                  <input type="text" className="form-control " value={chiSchoolName} placeholder="学校名称" onChange={(e) => setChiSchoolName(e.target.value)} />
                 </div>
               </div>
             </div>
@@ -88,7 +95,7 @@ const Register = () => {
               <div className="form-text remarks englishF">Remarks: The topics submitted will be used for this tournament. </div>
               <div className="form-text remarks">备注：所提交之辩题将会作为本赛事之用 </div>
             </div>
-            <button onSubmit = {onSubmit} type="submit" className="btn btn-primary">
+            <button  type="submit" className="btn btn-primary">
               <span className = "englishF"> Submit / </span> <span> 提交 </span>
             </button>
           </form>
