@@ -1,13 +1,14 @@
-html,body
-{
-    width: 100%;
+/* html,body
+{ */
+    /* width: 100%;
     height: 100%;
     margin: 0px;
     padding: 0px;
-    overflow-x: hidden; 
-}
+    overflow-x: hidden;  */
+    
+/* }  */
 
-.logo-block{
+.block{
   position: absolute;
   height:100vh;
   width: 100%;
@@ -37,19 +38,26 @@ html,body
       500px 50%;
     }
   } */
+::placeholder{
+  font-family: Arial, Helvetica, sans-serif;
+}
 
 .main_block{
   color:#3B454C;
   background-color:#FFFFFF;
   margin: auto;
-  margin-top: 5%; 
+  margin-top: 8%; 
   width: 60%;
   border:1px solid #cecece;
   border-radius: 0.5rem;
   padding: 5%;
-  padding-top:2%;
+  padding-top:1%;
   padding-bottom:3%;
+  margin-bottom:5%;
+}
 
+.englishF{
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .regForm{
@@ -57,9 +65,11 @@ html,body
 }
 
 .register_header{
+  padding-left:0.8rem;
   margin-top:2.5%;
   margin-bottom:2%;
   font-size: 2.5vw;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .school{
@@ -95,8 +105,7 @@ html,body
 
 .logo{
   padding-left: 5%;
-  padding-top:12%;
-  /* height:50%; */
+  padding-top:2%
 }
 
 .ten-logo{
@@ -107,7 +116,7 @@ html,body
 .bian-logo{
 	position:absolute;
 	z-index: 2;
-	right:-5%;
+	right:1%;
 }
 
 .remarks{
