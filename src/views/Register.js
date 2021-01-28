@@ -20,7 +20,7 @@ const Register = () => {
     e.preventDefault()
     console.log(e)
 
-    const register_data={engSchoolName,
+    const registerData={engSchoolName,
                         chiSchoolName,
                         engTeamLeaderName,
                         chiTeamLeaderName,
@@ -29,6 +29,20 @@ const Register = () => {
                         debateTopics_1,
                         debateTopics_2}
     
+    const addRegisterData = async (registerData) =>{
+      const res = await fetch ('',{
+        method : 'POST',
+        headers:{
+          'Content-type':'application/json'
+        },
+        body: JSON.stringify(registerData)
+      })
+      const data = res.json()
+      console.log(data)
+    }
+    
+    addRegisterData(registerData)
+
     setEngSchoolName = ('')
     setChiSchoolName = ('')
     setEngTeamLeaderName = ('')
