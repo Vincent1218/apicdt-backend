@@ -4,53 +4,29 @@ import '../components/css/Register.css';
 import logoBase from '../assets/image/yatai 10th logo-10.png';
 import logoTop1 from '../assets/image/yatai 10th logo-bian.png';
 
+
 const Register = () => {
+  const [registerData, setRegisterData] = useState ({engSchoolName : '',chiSchoolName : '',engTeamLeaderName : '',chiTeamLeaderName : '',teamLeaderContact : '',teamLeaderEmail : '',debateTopics_1 : '',debateTopics_2 : ''});
 
-  const [engSchoolName, setEngSchoolName] = useState('')
-  const [chiSchoolName, setChiSchoolName] = useState('')
-  const [engTeamLeaderName, setEngTeamLeaderName] = useState('')
-  const [chiTeamLeaderName, setChiTeamLeaderName] = useState('')
-  const [teamLeaderContact, setTeamLeaderContact] = useState('')
-  const [teamLeaderEmail, setTeamLeaderEmail] = useState('')
-  const [debateTopics_1, setDebateTopics_1] = useState('')
-  const [debateTopics_2, setDebateTopics_2] = useState('')
-
+  const addRegisterData = async (registerData) =>{
+    const res = await fetch ('http://localhost:5000/register',{
+      method : 'POST',
+      headers:{
+        'Content-type':'application/json',
+      },
+      body: JSON.stringify(registerData),
+    })
+    const data = await res.json()
+    console.log(data) ;
+  }
 
   const onSubmit = (e) =>{
     e.preventDefault()
-    console.log(e)
-
-    const registerData={engSchoolName,
-                        chiSchoolName,
-                        engTeamLeaderName,
-                        chiTeamLeaderName,
-                        teamLeaderContact,
-                        teamLeaderEmail,
-                        debateTopics_1,
-                        debateTopics_2}
     
-    const addRegisterData = async (registerData) =>{
-      const res = await fetch ('',{
-        method : 'POST',
-        headers:{
-          'Content-type':'application/json'
-        },
-        body: JSON.stringify(registerData)
-      })
-      const data = res.json()
-      console.log(data)
-    }
     
-    addRegisterData(registerData)
+    addRegisterData(registerData);
+    setRegisterData ({engSchoolName : '',chiSchoolName : '',engTeamLeaderName : '',chiTeamLeaderName : '',teamLeaderContact : '',teamLeaderEmail : '',debateTopics_1 : '',debateTopics_2 : ''});
 
-    setEngSchoolName = ('')
-    setChiSchoolName = ('')
-    setEngTeamLeaderName = ('')
-    setChiTeamLeaderName = ('')
-    setTeamLeaderContact = ('')
-    setTeamLeaderEmail = ('')
-    setDebateTopics_1 = ('')
-    setDebateTopics_2 = ('')
 
   }
   
@@ -68,10 +44,10 @@ const Register = () => {
               </div>
               <div className="row schoolPartForm">
                 <div className="mb-3 col-6">
-                  <input type="text" className="form-control englsihF" value={engSchoolName} placeholder="Name of School" onChange={(e) => setEngSchoolName(e.target.value)} />
+                  <input type="text" className="form-control englsihF" value={registerData.engSchoolName} placeholder="Name of School" onChange={(e) => setRegisterData({ ...registerData, engSchoolName: e.target.value })}  />
                 </div>
                 <div className="mb-3 col-6">
-                  <input type="text" className="form-control " value={chiSchoolName} placeholder="学校名称" onChange={(e) => setChiSchoolName(e.target.value)} />
+                  <input type="text" className="form-control " value={registerData.chiSchoolName} placeholder="学校名称" onChange={(e) => setRegisterData({ ...registerData, chiSchoolName: e.target.value })} />
                 </div>
               </div>
             </div>
@@ -81,17 +57,17 @@ const Register = () => {
               </div>
               <div className="row leaderPartForm">
                 <div className="mb-3 col-6">
-                  <input type="text" className="form-control" value={engTeamLeaderName} placeholder="Name of Team Leader" onChange={(e) => setEngTeamLeaderName(e.target.value)}/>
+                  <input type="text" className="form-control" value={registerData.engTeamLeaderName} placeholder="Name of Team Leader" onChange={(e) => setRegisterData({ ...registerData, engTeamLeaderName: e.target.value })}/>
                 </div>
                 <div className="mb-3 col-6">
-                  <input type="text" className="form-control" value={chiTeamLeaderName} placeholder="队长姓名" onChange={(e) => setChiTeamLeaderName(e.target.value)} />
+                  <input type="text" className="form-control" value={registerData.chiTeamLeaderName} placeholder="队长姓名" onChange={(e) => setRegisterData({ ...registerData, chiTeamLeaderName: e.target.value })} />
                 </div>
               </div>
               <div className="mb-3">
-                <input type="text" className="form-control" value={teamLeaderContact} placeholder="队长联络电话" onChange={(e) => setTeamLeaderContact(e.target.value)}/>
+                <input type="text" className="form-control" value={registerData.teamLeaderContact} placeholder="队长联络电话" onChange={(e) => setRegisterData({ ...registerData, teamLeaderContact: e.target.value })}/>
               </div>
               <div className="mb-3">
-                <input type="email" className="form-control" value={teamLeaderEmail} placeholder="队长电邮地址" onChange={(e) => setTeamLeaderEmail(e.target.value)}/>
+                <input type="email" className="form-control" value={registerData.teamLeaderEmail} placeholder="队长电邮地址" onChange={(e) => setRegisterData({ ...registerData, teamLeaderEmail: e.target.value })}/>
               </div>
             </div>
             <div className="topics container">
@@ -100,16 +76,16 @@ const Register = () => {
               </div>
               <div className="row debateTopicsForm">
                 <div className="col-6">
-                  <input type="text" className="form-control" value={debateTopics_1} placeholder="辩题一" onChange={(e) => setDebateTopics_1(e.target.value)}/>
+                  <input type="text" className="form-control" value={registerData.debateTopics_1} placeholder="辩题一" onChange={(e) => setRegisterData({ ...registerData, debateTopics_1: e.target.value })}/>
                 </div>
                 <div className="col-6">
-                  <input type="text" className="form-control" value={debateTopics_2} placeholder="辩题二" onChange={(e) => setDebateTopics_2(e.target.value)}/>
+                  <input type="text" className="form-control" value={registerData.debateTopics_2} placeholder="辩题二" onChange={(e) => setRegisterData({ ...registerData, debateTopics_2: e.target.value })}/>
                 </div>
               </div>
               <div className="form-text remarks englishF">Remarks: The topics submitted will be used for this tournament. </div>
               <div className="form-text remarks">备注：所提交之辩题将会作为本赛事之用 </div>
             </div>
-            <button  type="submit" className="btn btn-primary">
+            <button  type="submit" className="btn btn-primary" value='Save Form'>
               <span className = "englishF"> Submit / </span> <span> 提交 </span>
             </button>
           </form>
