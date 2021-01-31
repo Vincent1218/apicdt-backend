@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 
-
 const resgisterSchema = mongoose.Schema({
     engSchoolName: String,
     chiSchoolName: String,
@@ -12,7 +11,7 @@ const resgisterSchema = mongoose.Schema({
     debateTopics_2: String,
 })
 
-var registerData = mongoose.model('registerData', resgisterSchema);
+var registerModel = mongoose.model('Register', resgisterSchema);
 
-export default registerData;
+export default registerModel;
 
