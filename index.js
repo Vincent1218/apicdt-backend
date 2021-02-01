@@ -5,7 +5,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import { port } from "./config.js";
 
-import registerRoutes from '../server/routes/register.js';
+import registerRoutes from '../apicdt-backend/routes/register.js';
 dotenv.config();
 
 const app = express();
