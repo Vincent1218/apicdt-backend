@@ -11,9 +11,9 @@ export const getRegisterData = async (req, res) => {
 }
 
 export const addRegisterData = async (req, res) => {
-    const { engSchoolName, chiSchoolName, engTeamLeaderName, chiTeamLeaderNam, teamLeaderContact, teamLeaderEmail, debateTopics_1, debateTopics_2 } = req.body;
+    const { engSchoolName, chiSchoolName, engTeamLeaderName, chiTeamLeaderName, teamLeaderContact, teamLeaderEmail, debateTopics_1, debateTopics_2 } = req.body;
 
-    const newRegisterData = new registerModel({ engSchoolName, chiSchoolName, engTeamLeaderName, chiTeamLeaderNam, teamLeaderContact, teamLeaderEmail, debateTopics_1, debateTopics_2 })
+    const newRegisterData = new registerModel({ engSchoolName, chiSchoolName, engTeamLeaderName, chiTeamLeaderName, teamLeaderContact, teamLeaderEmail, debateTopics_1, debateTopics_2 })
     
     try {
         console.log(newRegisterData)
