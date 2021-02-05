@@ -13,7 +13,6 @@ app.use(cors());
 
 app.use('/register',registerRoutes);
 
-//Remove this
 
 mongoose.connect(mongoConnectionString,{
     useNewUrlParser:true,
